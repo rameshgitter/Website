@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Filter Web App</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        header {
+            background-color: #0044cc;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .welcome {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .welcome img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 20px;
+        }
+        .image-container div {
+            flex: 1;
+            text-align: center;
+        }
+        canvas {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .about {
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .about img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #333;
+            color: white;
+            margin-top: 40px;
+        }
+        @media (max-width: 768px) {
+            .image-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Image Filter Web App</h1>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#app">App</a>
+        <a href="#about">About Image Processing</a>
+    </nav>
+    <main id="home">
+        <section class="welcome">
+            <h2>Welcome Researchers and Astronomers</h2>
+            <p>Explore the fascinating world of image processing. Remove noise from microscopic images and galaxy photographs with our advanced filters.</p>
+
+        </section>
+        <section id="app">
+            <h2>Upload Your Image</h2>
+            <input type="file" id="fileInput" accept="image/*">
+            <div class="image-container">
+                <div>
+                    <h3>Original</h3>
+                    <canvas id="canvasInput"></canvas>
+                </div>
+                <div>
+                    <h3>Average Filter</h3>
+                    <canvas id="canvasAverage"></canvas>
+                </div>
+                <div>
+                    <h3>Median Filter</h3>
+                    <canvas id="canvasMedian"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+    <main id="about" class="about">
+        <h2>About Image Processing</h2>
+        <img src="image_processing.jpg" alt="Image Processing">
+        <p>Image processing is a method to perform operations on an image to enhance it or extract useful information. It is a type of signal processing where the input is an image and the output may be an image or characteristics/features associated with that image. It has various applications in numerous fields, including astronomy, medical imaging, industrial inspection, and more.</p>
+        <h3>Key Techniques</h3>
+        <ul>
+            <li><strong>Noise Reduction:</strong> Techniques like averaging and median filtering help reduce noise in images.</li>
+            <li><strong>Edge Detection:</strong> Methods like Canny, Sobel, and Prewitt filters are used to detect edges in images.</li>
+            <li><strong>Image Segmentation:</strong> Dividing an image into parts to simplify its analysis.</li>
+            <li><strong>Image Enhancement:</strong> Techniques to improve the visual appearance of an image.</li>
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2024 Image Filter Web App. All rights reserved.</p>
+    </footer>
+
+    <script async src="https://docs.opencv.org/4.5.2/opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>
+    <script>
+        function onOpenCvReady() {
+            document.getElementById('fileInput').addEventListener('change', loadImage);
+        }
+
+        function loadImage(e) {
+            let file = e.target.files[0];
+            let reader = new FileReader();
+            reader.onload = function(event) {
+                let img = new Image();
+                img.onload = function() {
+                    let mat = cv.imread(img);
+                    cv.imshow('canvasInput', mat);
+                    applyFilters(mat);
+                    mat.delete();
+                }
+                img.src = event.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+
+        function applyFilters(src) {
+            // Average Filter
+            let dst = new cv.Mat();
+            let ksize = new cv.Size(3, 3);
+            let anchor = new cv.Point(-1, -1);
+            cv.blur(src, dst, ksize, anchor, cv.BORDER_DEFAULT);
+            cv.imshow('canvasAverage', dst);
+            dst.delete();
+
+            // Median Filter
+            dst = new cv.Mat();
+            cv.medianBlur(src, dst, 3);
+            cv.imshow('canvasMedian', dst);
+            dst.delete();
+        }
+    </script>
+</body>
+</html>
