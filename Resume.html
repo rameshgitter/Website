@@ -3,200 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Ramesh Chandra Soren, Web Developer specializing in full stack development">
-    <title>Ramesh Chandra Soren - Web Developer Portfolio</title>
+    <title>Image Filter Web App</title>
     <style>
-        /* General Reset and Layout */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
             background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
+            color: #333;
         }
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 0 20px;
+        header, nav, main, footer {
+            margin-bottom: 20px;
         }
-        /* Header Styles */
         header {
-            background-color: #3498db;
-            color: #fff;
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .header-content {
-            text-align: left;
-        }
-        .contact-info {
-            text-align: right;
-            font-size: 0.9rem;
-        }
-        .contact-info a {
-            color: #fff;
-            text-decoration: none;
-        }
-        /* Navigation Styles */
-        nav {
-            background-color: #2980b9;
-            color: #fff;
             text-align: center;
-            padding: 0.5rem;
+            padding: 20px 0;
+            background: #0073e6;
+            color: white;
+        }
+        nav {
+            text-align: center;
+            background: #333;
+            color: white;
+            padding: 10px 0;
         }
         nav a {
-            color: #fff;
+            color: white;
+            margin: 0 15px;
             text-decoration: none;
-            padding: 0.5rem 1rem;
         }
-        nav a:hover {
-            background-color: #1c638f;
+        main {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        /* Main Section Styles */
-        section {
-            padding: 2rem 0;
-        }
-        h1, h2 {
-            margin-bottom: 1rem;
-        }
-        .project, .education-item {
-            background-color: #fff;
-            border-radius: 5px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .skills {
+        .image-container {
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
+            justify-content: space-between;
+            margin-top: 20px;
         }
-        .skill {
-            background-color: #3498db;
-            color: #fff;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-        /* Footer Styles */
-        footer {
-            background-color: #34495e;
-            color: #fff;
+        .image-container div {
             text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
+        }
+        canvas {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #333;
+            color: white;
+        }
+        .about {
+            padding: 20px;
+        }
+        .about img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="header-content">
-            <h1>Ramesh Chandra Soren</h1>
-            <p>Web Developer | Fresher | Full Stack</p>
-        </div>
-        <div class="contact-info">
-            <p>Email : <a href="mailto:sorenramesh868@gmail.com">sorenramesh868@gmail.com</a></p>
-            <p>Phone : (+91) 8984090285</p>
-            <p>LinkedIn : <a href="https://www.linkedin.com/in/ramesh-chandra-soren" target="_blank">Ramesh Chandra Soren</a></p>
-            <p>Github : <a href="https://github.com/rameshgitter" target="_blank">github.com/rameshgitter</a></p>
-        </div>
+        <h1>Image Filter Web App</h1>
     </header>
-
     <nav>
-        <div class="container">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#education">Education</a>
-            <a href="#projects">Projects</a>
-        </div>
+        <a href="#home">Home</a>
+        <a href="#app">App</a>
+        <a href="#about">About Image Processing</a>
     </nav>
-
-    <main class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Hello! I'm Ramesh Chandra Soren, a web developer with a fresh perspective on creating engaging and functional websites.</p>
-            <p>I am currently in my 3rd year of college. I developed a web application for early breast cancer detection by analyzing medical reports and tumor images. Users can upload images and parameters, and the machine learning model provides a cancer risk assessment. Incorporated image denoising feature for accurate analysis. Built with <b>ReactJS, TailwindCSS, Python, and ExpressJS</b>. Combines cutting-edge technologies for a user-friendly cancer detection solution.</p>
+    <main id="home">
+        <section class="welcome">
+            <h2>Welcome Researchers and Astronomers</h2>
+            <p>Explore the fascinating world of image processing. Remove noise from microscopic images and galaxy photographs with our advanced filters.</p>
+            <img src="welcome.jpg" alt="Galaxy Image">
         </section>
-
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="skills">
-                <span class="skill">C\C++</span>
-                <span class="skill">Python</span>
-                <span class="skill">HTML5</span>
-                <span class="skill">CSS3</span>
-                <span class="skill">JavaScript</span>
-                <span class="skill">Responsive Design</span>
-                <span class="skill">Git</span>
-                <span class="skill">React.js</span>
-                <span class="skill">Node.js</span>
+        <section id="app">
+            <h2>Upload Your Image</h2>
+            <input type="file" id="fileInput" accept="image/*">
+            <div class="image-container">
+                <div>
+                    <h3>Original</h3>
+                    <canvas id="canvasInput"></canvas>
+                </div>
+                <div>
+                    <h3>Average Filter</h3>
+                    <canvas id="canvasAverage"></canvas>
+                </div>
+                <div>
+                    <h3>Median Filter</h3>
+                    <canvas id="canvasMedian"></canvas>
+                </div>
             </div>
-        </section>
-
-        <section id="education">
-            <h2>Education</h2>
-            <div class="education-item">
-                <h3>Bachelor of Science in Computer Science and Technology</h3>
-                <p>Indian Institute of Engineering Science and Technology, Shibpur, 2022-2026</p>
-                <p><b>Relevant coursework:</b> Data Structures and Algorithms, Data Science, OOPS, Computer Architecture and Organisation</p>
-                <p>CGPA: 7.74 (out of 10 till 4th sem)</p>
-            </div>
-            <div class="education-item">
-                <h3>Open Source Web Development Cohort</h3>
-                <p><b>Instructor:</b> Harkirat Singh</p>
-                <p>Intensive 6-month program focusing on full-stack web development and open source contribution</p>
-            </div>
-        </section>
-
-        <section id="projects">
-            <h2>My Projects</h2>
-            <div class="project">
-                <h3>Gemini AI Chatbot</h3>
-                <p>
-                    - Built a conversational AI chatbot using Gemini and Python Flask.
-                    - Integrated Gemini for advanced conversational abilities.
-                    - Developed a scalable backend using Flask framework.
-                    - Utilized natural language processing (NLP) for understanding user queries and context-aware responses.
-                </p>
-                <a href="https://github.com/rameshgitter/Gemini_bot" target="_blank" class="button">GitHub Repository</a>
-            </div>
-            <div class="project">
-                <h3>4th Semester - Minor Project | Breast Cancer Detection</h3>
-                <p>
-                    - Data Preprocessing: Handled missing data, performed feature scaling, and encoded categorical variables to prepare the dataset for modeling.
-                    - Model Development: Built a logistic regression model to classify tumors as benign or malignant based on various features such as tumor size, age, and other relevant factors. Implemented regularization techniques like Ridge or Lasso to avoid overfitting.
-                    - Model Evaluation: Assessed the model's performance using metrics like accuracy(95.6%), precision(96%), recall(95%), and F1-score(95%) from the confusion matrix. Employed techniques like k-fold cross-validation to ensure robust evaluation and prevent data leakage.
-                    - Deployment: Deployed the trained logistic regression model as a web application or API, allowing users to input new data and receive predictions on the likelihood of cancer.
-                </p>
-                <a href="https://github.com/rameshgitter/4th-Sem-Minor-Project" target="_blank" class="button">GitHub Repository</a>
-            </div>
-            <div class="project">
-                <h3>3rd Semester - Minor Project | Salt Pepper Noise Reduction</h3>
-                <p>
-                    - Implemented two filter functions: Average Filter and Median Filter in Python and C for reducing salt pepper noise from images.
-                    - Utilized OpenCV for basic image operations.
-                    - Developed a web application using HTML, Tailwind CSS, and Django for users to choose filters and kernel sizes to view the processed images.
-                </p>
-                <a href="https://github.com/rameshgitter/3rd-sem-Mini-Project" target="_blank" class="button">GitHub Repository</a>
-            </div>
-            
         </section>
     </main>
-
+    <main id="about" class="about">
+        <h2>About Image Processing</h2>
+        <img src="image_processing.jpg" alt="Image Processing">
+        <p>Image processing is a method to perform operations on an image to enhance it or extract useful information. It is a type of signal processing where the input is an image and the output may be an image or characteristics/features associated with that image. It has various applications in numerous fields, including astronomy, medical imaging, industrial inspection, and more.</p>
+        <h3>Key Techniques</h3>
+        <ul>
+            <li><strong>Noise Reduction:</strong> Techniques like averaging and median filtering help reduce noise in images.</li>
+            <li><strong>Edge Detection:</strong> Methods like Canny, Sobel, and Prewitt filters are used to detect edges in images.</li>
+            <li><strong>Image Segmentation:</strong> Dividing an image into parts to simplify its analysis.</li>
+            <li><strong>Image Enhancement:</strong> Techniques to improve the visual appearance of an image.</li>
+        </ul>
+    </main>
     <footer>
-        <div class="container">
-            <p>&copy; 2024 Ramesh Chandra Soren. All rights reserved.</p>
-        </div>
+        <p>&copy; 2024 Image Filter Web App. All rights reserved.</p>
     </footer>
+
+    <script async src="https://docs.opencv.org/4.5.2/opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>
+    <script>
+        function onOpenCvReady() {
+            document.getElementById('fileInput').addEventListener('change', loadImage);
+        }
+
+        function loadImage(e) {
+            let file = e.target.files[0];
+            let reader = new FileReader();
+            reader.onload = function(event) {
+                let img = new Image();
+                img.onload = function() {
+                    let mat = cv.imread(img);
+                    cv.imshow('canvasInput', mat);
+                    applyFilters(mat);
+                    mat.delete();
+                }
+                img.src = event.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+
+        function applyFilters(src) {
+            // Average Filter
+            let dst = new cv.Mat();
+            let ksize = new cv.Size(3, 3);
+            let anchor = new cv.Point(-1, -1);
+            cv.blur(src, dst, ksize, anchor, cv.BORDER_DEFAULT);
+            cv.imshow('canvasAverage', dst);
+            dst.delete();
+
+            // Median Filter
+            dst = new cv.Mat();
+            cv.medianBlur(src, dst, 3);
+            cv.imshow('canvasMedian', dst);
+            dst.delete();
+        }
+    </script>
 </body>
 </html>
-
