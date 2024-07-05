@@ -24,10 +24,10 @@ Welcome to the **Image Filter Web App** repository! This application allows rese
 ## Screenshots
 
 ### Welcome Page
-![Welcome Page](welcome.jpg)
+![Welcome Page](welcome.png)
 
 ### Image Processing Section
-![Image Processing](image_processing.jpg)
+![Image Processing](image_denoising.png)
 
 ## Installation
 
